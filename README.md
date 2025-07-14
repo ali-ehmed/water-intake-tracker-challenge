@@ -120,6 +120,24 @@ npm run dev
 
 ---
 
+### AI Tool Usage Policy
+
+We welcome the use of AI-assisted tools such as **ChatGPT**, **Cursor**, **GitHub Copilot**, or others — just like you'd use Stack Overflow or documentation. These are valuable aids in modern development.
+
+However, we expect you to use them **responsibly**:
+
+* Feel free to use AI tools to assist with **boilerplate**, **debugging**, or **structuring** code.
+* Please **do not copy-paste entire solutions** without understanding or customizing them.
+* You should be able to **clearly explain your code** during a review or interview.
+* If you used AI for a specific part, mention it briefly in your PR. For example:
+
+  > *"I used ChatGPT to help write the SQL aggregation logic, then refined it and tested edge cases manually."*
+
+We’re not testing how much you can memorize — we’re interested in **how you think**, **how you learn**, and **how you deliver** working solutions using modern tools.
+
+---
+
+
 ## ⏱ Estimated Time
 
 2–3 hours. Please don’t overthink. We’re not expecting perfection — just your best version of clean, working, testable code.
