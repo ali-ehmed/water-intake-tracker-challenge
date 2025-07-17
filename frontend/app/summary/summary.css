@@ -1,0 +1,125 @@
+/*
+  Styling for this page was created with the assistance of AI (Cascade, GPT-4).
+*/
+
+.summary-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ef 0%, #f5faff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 8px;
+}
+
+.summary-card {
+  max-width: 600px;
+  width: 100%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(30, 64, 175, 0.13);
+  border: 1px solid #bcd0ee;
+  padding: 38px 28px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.summary-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.summary-subtitle {
+  color: #3b82f6;
+  margin-bottom: 20px;
+  font-size: 1.04rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.summary-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.summary-label {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.summary-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #bcd0ee;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  background: #f0f6ff;
+  transition: border 0.2s;
+}
+.summary-input:focus {
+  border: 1.5px solid #2563eb;
+  outline: none;
+}
+
+.summary-btn {
+  width: 100%;
+  padding: 13px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+  color: #fff;
+  box-shadow: 0 2px 10px #2563eb22;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+.summary-btn:hover {
+  background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+}
+
+.summary-error {
+  color: #dc2626;
+  font-weight: 500;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.summary-chart {
+  width: 100%;
+  max-width: none;
+  margin-top: 22px;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #2563eb13;
+  padding: 18px 10px 10px 10px;
+  min-height: 220px;
+}
+
+.summary-well-done {
+  color: #059669;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
