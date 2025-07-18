@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
-import axios from "@/lib/getService";
-// import WaterChart from "@/components/WaterChart";
+import axios from "@/lib/service";
 
 type Props = {
   params: {
@@ -10,7 +9,7 @@ type Props = {
 const WaterChart = dynamic(() => import("@/components/WaterChart"));
 
 export default async function Page({ params }: Props) {
-  const { userId } = params;
+  const { userId } = await params;
   const response = await axios.get(`/water-summary/${userId}`);
 
   const data = response.data;
@@ -18,7 +17,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <p className="text-white text-[42px]">{`${userId}`}</p>
-      <WaterChart data={data}/>
+      <WaterChart data={data} />
     </>
   );
 }
