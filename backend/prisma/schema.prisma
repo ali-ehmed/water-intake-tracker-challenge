@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  Water Water[]
+}
+
+model Water {
+  id       Int      @id @default(autoincrement())
+  intakeMl Int
+  date     String 
+  userId   Int
+  user     User     @relation(fields: [userId], references: [id])
+  @@unique([userId, date])
+}
