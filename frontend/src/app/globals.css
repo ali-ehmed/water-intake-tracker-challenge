@@ -1,0 +1,458 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Global Base Styles (Applied to ALL pages) --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif; /* Modern, clean font stack */
+  color: #333; /* Default text color */
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Optional: Default subtle background if no page wrapper overrides it */
+body {
+  background: linear-gradient(135deg, #e0f7fa 0%, #e8eaf6 100%); /* Homepage specific gradient */
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- Animations & Utilities (Global if used across app, or move to component-specific CSS) --- */
+@keyframes gradient-move {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-move 8s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #14b8a6 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 8s ease-in-out infinite;
+}
+
+/* --- PAGE-SPECIFIC WRAPPERS (Crucial for unique page backgrounds/layouts) --- */
+
+/* Homepage Wrapper */
+.homepage-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #e0f7fa 0%, #e8eaf6 100%); /* Homepage specific gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to top initially */
+  box-sizing: border-box;
+}
+
+/* Log Page Wrapper */
+.log-page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f0fdfa 100%); /* Log page specific gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: flex-start; /* Aligns header to top, then main content centers */
+  box-sizing: border-box;
+}
+
+/* General container for centering content within page wrappers */
+.page-center-content {
+  flex-grow: 1; /* Allows it to take available vertical space */
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  padding: 32px 16px; /* Ensure some padding around the content */
+  width: 100%; /* Allows flex centering to work within the wrapper */
+  box-sizing: border-box;
+}
+
+
+/* --- SHARED COMPONENTS (Can be used on multiple pages if desired) --- */
+
+/* Global Navigation Bar Styling (can be adapted for homepage or log page) */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 20px;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 960px; /* Consistent max-width for nav */
+  margin: 0 auto;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.main-nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2C3E50;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+.main-nav-brand:hover, .main-nav-brand:focus {
+  color: #0d9488;
+  text-decoration: none;
+  background: rgba(6, 182, 212, 0.08);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.main-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+.main-nav-links a {
+  color: #6C757D;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  padding: 6px 14px;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.main-nav-links a:hover, .main-nav-links a:focus {
+  color: #fff;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+  transform: translateY(-2px);
+}
+.main-nav-links a.active {
+  color: #fff;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Global Footer Styling */
+.app-footer {
+  position: fixed;
+  left: 24px;
+  bottom: 18px;
+  color: #94a3b8;
+  font-size: 1.3rem;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+
+/* --- HOMEPAGE SPECIFIC COMPONENTS (Prefix with 'home-' or use nested selectors if needed) --- */
+
+.home-card {
+  background: rgba(255,255,255,0.9); /* Slightly more opaque for content visibility */
+  border-radius: 24px;
+  box-shadow: 0 12px 36px rgba(56, 189, 248, 0.15), 0 3px 12px rgba(44, 62, 80, 0.08);
+  padding: 48px 32px 40px 32px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+.home-logo-icon {
+  font-size: 4rem; /* Larger icon */
+  margin-bottom: 20px;
+  color: #06b6d4; /* Teal color for the droplet */
+  text-shadow: 0 2px 8px rgba(6, 182, 212, 0.3); /* Subtle shadow */
+}
+
+.home-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #2C3E50;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.home-tagline {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #6C757D;
+  margin-bottom: 24px;
+}
+
+.home-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 36px;
+  line-height: 1.5;
+}
+
+.home-button-group {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically on small screens */
+  gap: 20px; /* Space between buttons */
+  width: 100%; /* Ensure group takes full width */
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 28px; /* Larger padding for buttons */
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%; /* Make buttons full width in group */
+  box-sizing: border-box;
+}
+
+.home-btn-primary {
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%); /* Blue to purple gradient */
+  color: #fff;
+  border: none;
+}
+.home-btn-primary:hover {
+  background: linear-gradient(100deg, #6366f1 0%, #38bdf8 100%);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+}
+
+.home-btn-secondary {
+  background: #f0f4f8; /* Light gray background */
+  color: #4A5568; /* Darker text */
+  border: 1px solid #e2e8f0;
+}
+.home-btn-secondary:hover {
+  background: #e2e8f0;
+  color: #2C3E50;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+
+/* --- LOG PAGE SPECIFIC COMPONENTS --- */
+
+/* Form Card with Enhanced Gradient and Shadow */
+.log-form-card {
+  background: linear-gradient(145deg, #ffffff 5%, #f8faff 50%, #eef2ff 100%); /* Subtle white-to-light-blue/purple gradient */
+  border-radius: 28px;
+  box-shadow: 0 16px 48px rgba(56, 189, 248, 0.25), 0 4px 16px rgba(44, 62, 80, 0.15); /* Stronger shadow for depth */
+  padding: 48px 40px;
+  max-width: 460px; /* Wider for better balance */
+  width: 100%;
+  margin: 0 auto; /* Ensures it's centered if center-container isn't flex */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally within the card */
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+/* Title */
+.log-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2C3E50;
+  margin-bottom: 36px;
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: center;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+/* Form */
+.log-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px; /* Spacing between form groups */
+  align-items: center; /* Center the form fields if they have a max-width */
+}
+
+/* Form Group Container for Labels and Inputs */
+.log-form-group {
+  width: 100%; /* Takes full width of the form */
+  max-width: 360px; /* Constrain width of input fields for better appearance */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align label and input to the left within the group */
+}
+
+/* Labels */
+.log-label {
+  font-size: 1.05rem;
+  color: #4A5568;
+  font-weight: 600;
+  margin-bottom: 10px; /* Increased margin-bottom between label and input */
+  font-family: 'Poppins', Arial, sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+/* Inputs with Gradient Border and Enhanced Focus */
+.log-input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 2px solid #e2e8f0;
+  font-size: 1.15rem;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #fdfdfe;
+  color: #2C3E50;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+  transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  outline: none;
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Apply gradient border on focus */
+.log-input:focus {
+  border-color: transparent;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3), inset 0 1px 4px rgba(0,0,0,0.08);
+  background-clip: padding-box;
+  border-image: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  border-image-slice: 1;
+}
+
+/* Date input icon positioning */
+.log-input-date-wrapper {
+  position: relative;
+  width: 100%;
+}
+.log-input-date-wrapper .absolute-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6366f1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Submit Button with Stronger Gradient and Hover Effects */
+.log-submit-btn {
+  width: 100%;
+  max-width: 360px;
+  padding: 18px 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8 0%, #6366f1 100%);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Poppins', Arial, sans-serif;
+  border: none;
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  margin-top: 24px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+.log-submit-btn:hover, .log-submit-btn:focus {
+  background: linear-gradient(100deg, #6366f1 0%, #38bdf8 100%);
+  box-shadow: 0 12px 36px rgba(99, 102, 241, 0.35);
+  transform: translateY(-3px) scale(1.02);
+}
+
+
+/* --- Responsive Adjustments (apply to relevant classes) --- */
+@media (max-width: 768px) {
+  .main-nav, .log-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 10px;
+  }
+  .main-nav-links, .log-nav-right {
+    gap: 24px;
+  }
+  .main-nav-brand, .log-nav-left {
+    font-size: 1.3rem;
+  }
+
+  .home-card, .log-form-card {
+    padding: 32px 20px;
+    max-width: 95vw;
+  }
+  .home-title, .log-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  .home-btn, .log-submit-btn {
+    padding: 14px 0;
+    font-size: 1.1rem;
+  }
+  .log-form {
+    gap: 20px;
+  }
+  .log-input {
+    padding: 14px 16px;
+    font-size: 1rem;
+  }
+  .app-footer {
+    font-size: 1rem;
+    left: 10px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-nav-links, .log-nav-right {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .main-nav-links a, .log-nav-right a {
+    width: 100%;
+    text-align: center;
+  }
+  .home-card, .log-form-card {
+    padding: 24px 15px;
+  }
+  .home-title, .log-title {
+    font-size: 1.6rem;
+  }
+  .home-btn, .log-submit-btn {
+    font-size: 1rem;
+  }
+  .log-form-group {
+    max-width: 100%;
+  }
+  .home-tagline {
+    font-size: 1.1rem;
+  }
+  .home-description {
+    font-size: 0.9rem;
+  }
+}
