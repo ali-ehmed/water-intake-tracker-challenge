@@ -22,7 +22,7 @@ describe('WaterService', () => {
   });
 
   it('should return summary data', async () => {
-    const summary = await service.getWeeklySummary('test-user');
+    const summary = await service.getWaterSummary('test-user');
     expect(Array.isArray(summary)).toBe(true);
   });
 });
