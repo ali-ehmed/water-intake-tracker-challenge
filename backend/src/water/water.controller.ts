@@ -13,6 +13,6 @@ export class WaterController {
 
   @Get('water-summary/:userId')
   getSummary(@Param('userId') userId: string) {
-    return this.waterService.getWeeklySummary(userId);
+    return this.waterService.getWaterSummary(userId);
   }
 }
