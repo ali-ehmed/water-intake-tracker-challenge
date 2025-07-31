@@ -3,12 +3,12 @@ import { IsDateString, IsInt, IsString } from '@nestjs/class-validator';
 
 export class CreateLogDto {
 
-  @ApiProperty({ example: '123', description: 'User ID' })
+  @ApiProperty({ example: '12', description: 'User ID' })
   @IsString()
   userId: string;
 
   @ApiProperty({
-    example: '2025-07-31',
+    example: '2025-08-01',
     description: 'Date in YYYY-MM-DD format',
   })
   @IsDateString()
