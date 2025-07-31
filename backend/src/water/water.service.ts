@@ -11,10 +11,19 @@ export class WaterService {
   constructor(private prisma: PrismaService) {}
 
   async logWater(dto: CreateLogDto) {
-    return this.prisma.waterLog.upsert({
+    const existing = await this.prisma.waterLog.findUnique({
       where: { userId_date: { userId: dto.userId, date: dto.date } },
-      update: { intakeMl: dto.intakeMl },
-      create: { ...dto },
+    });
+
+    if (existing) {
+      return this.prisma.waterLog.update({
+        where: { userId_date: { userId: dto.userId, date: dto.date } },
+        data: { intakeMl: existing.intakeMl + dto.intakeMl },
+      });
+    }
+
+    return this.prisma.waterLog.create({
+      data: dto,
     });
   }
 
