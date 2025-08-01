@@ -19,11 +19,7 @@ export class WaterLogController {
     }
     @Get('/summary/:userId')
     async getSummary(@Param('userId') userId: string) {
-        console.log(`Fetching water summary for user: ${userId}`);
-        console.log(typeof userId, userId);
-        
-        
-        const data = await this.waterLogService.getWaterSummary(userId);
-        return { data };
+       return await this.waterLogService.getWaterSummary(userId);
+       
     }
 }
