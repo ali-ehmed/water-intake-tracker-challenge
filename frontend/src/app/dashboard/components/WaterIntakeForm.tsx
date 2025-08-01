@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { format } from "date-fns";
 import { mutate } from "swr";
 import { useLogWaterIntake } from "@/lib/api";
+import React from "react";
 
 export default function WaterIntakeForm() {
   const [amount, setAmount] = useState("");

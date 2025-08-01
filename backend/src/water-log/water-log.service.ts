@@ -1,7 +1,7 @@
 // src/water-log/water-log.service.ts
 
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { SummaryResponseDTO } from './dto/water-log';
 
 
