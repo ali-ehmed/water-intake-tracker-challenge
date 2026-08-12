@@ -88,6 +88,8 @@ cd backend
 npm install
 npx prisma generate
 npm run start:dev
+cp .env.example .env
+
 ````
 
 * The database uses **SQLite**, stored at `prisma/dev.db`
