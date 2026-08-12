@@ -1,0 +1,132 @@
+:root {
+  --background: #f3f8ff;
+  --foreground: #171717;
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --accent: #38bdf8;
+  --card-bg: #fff;
+  --card-shadow: 0 4px 32px 0 rgba(37, 99, 235, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --card-bg: #181e2a;
+    --card-shadow: 0 4px 32px 0 rgba(37, 99, 235, 0.16);
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(135deg, #f3f8ff 0%, #dbeafe 100%);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 1.25rem;
+  box-shadow: var(--card-shadow);
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 36rem;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  border: 1px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  background: #f9fafb;
+}
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+button {
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(37, 99, 235, 0.08);
+  transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  opacity: 0.95;
+}
+button:disabled {
+  opacity: 0.6;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+  color: #334155;
+}
+
+.animate-pulse {
+  animation: pulse 1.2s infinite alternate;
+}
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.animate-bounce {
+  animation: bounce 1.2s infinite alternate;
+}
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background: linear-gradient(135deg, #181e2a 0%, #1e293b 100%);
+  }
+  input[type="text"],
+  input[type="date"],
+  input[type="number"] {
+    background: #232a3b;
+    color: #ededed;
+    border: 1px solid #334155;
+  }
+  label {
+    color: #cbd5e1;
+  }
+}
